@@ -1,12 +1,12 @@
 def solution(n):
+    num = 0
     i = 1
-    num = 1
     while True:
-        if num % n != 0:
-            num += pow(10,i)
-            i += 1
-        else:
+        num = num * 10 + 1
+        num %= n
+        if num == 0:
             return i
+        i+=1
 
 
 if __name__ == "__main__":
