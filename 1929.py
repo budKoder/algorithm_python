@@ -1,17 +1,14 @@
-def solution(start, end):
-    arr = [[_,True] for _ in range(end+1)]
+def solution(m,n):
+    arr = [True for _ in range(n+1)]
+    arr[0], arr[1] = False, False
+    for i in range(2, int(n**0.5)+1):
+        if arr[i]:
+            for j in range(i+i, n+1, i):
+                arr[j] = False
 
-    for i in range(2,len(arr)):
-        num = arr[i][0]
-        check = arr[i][1]
-
-        if check:
-            if num >= start:
-                print(num)
-            uncheck = num + num
-            while uncheck <= end:
-                arr[uncheck][1] = False
-                uncheck += num
+    for i in range(m,n+1):
+        if arr[i]:
+            print(i)
 
 
 if __name__ == "__main__":
